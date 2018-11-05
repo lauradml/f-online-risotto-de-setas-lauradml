@@ -37,6 +37,7 @@ function listProducts(){
       check.type='checkbox';
       check.name = 'products';
       number.type= 'number';
+      number.value= product[i].items;
       article.innerHTML = product[i].product;
       brand.innerHTML = product[i].brand;
       quantity.innerHTML =  product[i].quantity;
@@ -52,17 +53,25 @@ function listProducts(){
 
       shippingCost.innerHTML="Gastos de evio: " + result.recipe['shipping-cost'] + ' €'
 
-      check.addEventListener('click', selectOne);
+      check.addEventListener('change', selectOne);
+
 
     }
 }
 
 function selectOne(event){
 console.log('kk');
-console.log(rowList);
-// for (let i=0; i<rowList.length;i++)
-// total.innerHTML= rowList[i].price;
+const input = event.currentTarget.document.getElementsByClassName('select-item').value;
+
+   if(input.checked){
+    total.innerHTML= 'hola';
+  }else{
+    total.innerHTML= '0 €'
+  }
+
+
 }
+
 
 
 function selectAll(){
